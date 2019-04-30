@@ -1,2 +1,1 @@
-# Commutatus
-Assessment for commutatus
+# React-redux-boilerplate
