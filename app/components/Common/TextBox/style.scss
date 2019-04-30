@@ -1,0 +1,72 @@
+@import 'theme/variables';
+@import 'theme/mixins';
+
+.formGroup {
+	&Input{
+		&.disabledColor{
+			background-color: $white!important;
+		}
+	}
+	&Input, &TextArea {
+		font:{
+			family:$nunitosemiBold;
+			size:$font-md;
+		}
+		color:$navy;
+		line-height: 1.4;
+  		letter-spacing: -0.2px;
+	}
+	&Input, &TextArea {
+		border:none;
+		border-radius: 4px;
+		background-color:$secondaryInput;
+		padding: 0 15px;
+		@include width-height(100%, 60px);
+		&:focus {
+			font-size:$font-msd;
+		}
+	}
+	&TextArea {
+		height:100px;
+		padding-top:15px;
+		resize:none;
+		vertical-align: middle;
+	}
+}
+.hasError {
+	.formGroupInput , TextArea{
+		border-color:$fm-focus-outline-error;
+	}
+	.formGroupInput, .formGroupLabel,TextArea {
+		border:1px solid #c62817;
+	}
+}
+/*.hasError, .hasEmpty {
+	.info_wrapper {
+		border: solid 1px red;
+		background-color: red;
+	}
+	.formGroupLabel, TextArea {
+		color: $fm-focus-outline;
+		font-size:$font-sm;
+		top:-9px;
+	}
+}*/
+.hasSuccess {
+	.formGroupLabel {
+		/*color: $fm-focus-outline;
+		font-size:$font-sm;
+		top:-9px;*/
+	}
+}
+.helpBlock {
+	color: #c62817;
+	display:block;
+	padding:5px 15px 0px;
+	font:{
+		size:12px;
+		weight:bold;
+	};
+	text-align: left;
+}
+

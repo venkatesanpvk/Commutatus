@@ -1,0 +1,31 @@
+@import 'theme/variables';
+@import 'theme/mixins';
+
+.formRow {
+	margin-bottom: 20px;
+	position:relative;
+	padding-left: 180px;
+	label {
+		font:{
+			size:$font-msd;
+		}
+		line-height: 1.4;
+		color: $navy;
+		position: absolute;
+		left: 0px;
+		top: 20px;
+	}
+		
+}
+
+@media screen and (max-width:640px){
+	.formRow{
+		padding-left: 0;
+		label{
+			display: block;
+			position: relative;
+			padding-bottom:0px;
+			top:0;
+		}
+	}
+}

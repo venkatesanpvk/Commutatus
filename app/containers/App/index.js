@@ -5,7 +5,6 @@ import { ReactReduxInternetConnection } from 'react-redux-internet-connection';
 import { connect } from 'react-redux';
 import Routes from './routes';
 
-
 class Index extends Component {
   render() {
     return (
@@ -15,6 +14,5 @@ class Index extends Component {
     );
   }
 }
-
 
 export default Index;

@@ -7,15 +7,12 @@
  */
 import { combineReducers } from 'redux';
 
-
 import getOpertunitiesList from 'reducers/getOpertunitiesList';
 
 const allReducers = {
-  getOpertunitiesList
+  getOpertunitiesList,
 };
 
 const appReducer = combineReducers(allReducers);
-
-
 
 export default appReducer;

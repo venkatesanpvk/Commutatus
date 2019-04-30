@@ -1,0 +1,12 @@
+.button{
+	padding: 6px;
+    background-color: #ea5050;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    max-width: 67px;
+    cursor: pointer;
+    &.bGcolor{
+    	background-color: #7bd3f7;
+    }
+}

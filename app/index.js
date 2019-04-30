@@ -8,7 +8,6 @@ import App from 'containers/App';
 import history from 'containers/App/history';
 import store from 'store';
 
-
 const renderApp = Component => {
   ReactDOM.render(
     <Provider store={store}>

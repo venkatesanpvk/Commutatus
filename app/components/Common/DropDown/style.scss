@@ -1,0 +1,301 @@
+@import 'theme/variables';
+@import 'theme/mixins';
+.selectMenu{
+	display: inline-block;
+	width: 30%;
+}
+.menuItems {
+	color: #000;
+	margin-left: -10px !important;
+	&:hover {
+		background-color: $red !important;
+		color: $black !important;
+	}
+}
+.dropAlign{
+	position: relative;
+	&.reduceBottom{
+		margin-bottom: 0px;
+	}
+}
+
+.menuStyle{
+	height: 70px;
+}
+.helpBlock {
+	color:$form-error-label-bg;
+	display:block;
+	padding:15px 20px;
+	font:{
+		size:$font-sm!important;
+	};
+	letter-spacing:1px;
+	line-height: 20px;
+	text-align:left;
+}
+.multiSelectRowWrap {
+	position: relative;
+	&.active {
+		.multiSelectDropDownWrap {
+			max-height: 240px;
+		}
+	}
+	&.hasError {
+		.multiSelectDropDownWrap {
+			top:-44px;
+		}
+	}
+}
+.multiSelectRow {
+	cursor: pointer;
+	position: relative;
+	&:after, &:before {
+		position:absolute;
+	}
+	&:before {
+		content: "";
+		left:0px;
+		top:0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 4;
+	}
+	&:after {
+		color: $grey;
+		content:">";
+		font-family: $font-qsbold;
+		font-size:12px;
+		font-weight: 300;
+		right: 20px;
+		top: 13px;
+		@include transform(rotate(90deg));
+	}
+}
+.selectedItems {
+	background-color: $body-bg;
+	position: absolute;
+	left: 2px;
+	padding: 7px 10px;
+	overflow: hidden;
+	top: 6px;
+	z-index: 4;
+	li {
+		background-color: white;
+		float: left;
+		padding: 1px 20px 1px 10px;
+		position: relative;
+		margin-right: 10px;
+		@include border-radius(4px);
+		span {
+			color: $checkedCloseColor;
+			cursor: pointer;
+			line-height: 15px;
+			position: absolute;
+			padding: 5px;
+			right: 0px;
+			top:0px;
+			font:{
+				size:$font-xsm;
+			};
+		}
+	}
+}
+.multiSelectDropDownWrap {
+	max-height: 0px;
+	overflow: auto;
+	@include single-transition(max-height, 0.5s, ease-in-out);
+	position: relative;
+	top: -25px;
+	z-index:5;
+}
+.multiSelectDropDown {
+	border:1px solid $fm-border-color;
+	padding: 10px;
+	background-color: white;
+	border-top:none;
+	> div, li {
+		cursor: pointer;
+		font-size: 14px;
+		margin-bottom: 15px;
+		&:not(:last-child) {
+			border-bottom:1px solid $fm-border-color;
+			padding-bottom: 15px;
+		}
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.hasError, .hasEmpty {
+	margin-bottom: 10px;
+	.formGroupInput, TextArea {
+		border-color:$fm-focus-outline-error;
+	}
+	.formGroupLabel, TextArea {
+		color: $fm-focus-outline;
+		font-size:$font-sm;
+		top:-9px;
+	}
+}
+.formGroupLabel {
+	background-color: $fm-flt-label-bg;
+	color: $fm-flt-label-color;
+	cursor: text;
+	left:7px;
+	padding: 3px 5px;
+	position: absolute;
+	top:14px;
+	@include single-transition(all, 0.15s, ease-in);
+	z-index: 3;
+	line-height: 14px;
+	font-weight: bold;
+}
+.hasSuccess {
+	.formGroupLabel {
+		color: $fm-focus-outline;
+		font-size:$font-sm;
+		top:-9px;
+		text-transform: uppercase;
+	}
+}
+
+
+/*search Bar*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+   	@include position(absolute, $left:0, $top:41px);
+   	@include transition(all 0.25s ease-in-out);
+   	opacity: 0;
+   	visibility: hidden;
+   	width: 100%;
+   	z-index: 9999;
+    display: inline-block;
+    &Content{
+	    overflow: auto;
+	    box-shadow :0 0 0.25rem rgba(25,28,30,.12), 0 0.5rem 1rem rgba(25,28,30,.1);
+	    z-index: 1;
+	    background-color:white;
+	    a {
+		    color: black;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+	}
+	&List{
+		text-align: left;
+		max-height: 190px;
+		overflow-y: auto;
+		a{
+			color: #120047 !important;
+		    cursor: pointer;
+		    font-size: 16px;
+		    text-transform: capitalize;
+			&:hover{
+				background-color: #f8f8f8;
+			}
+		}
+	}
+}
+.dropdownActive{
+	top: 51px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.notFound{
+	display: block;
+	text-align: center;
+	padding:10px;
+	color: #ddd;
+}
+.customStyleRight{ 
+	padding-left: 180px;
+    top: 61px;
+    background-color: transparent;
+}
+.select{
+	&Dropdown{
+		color: $paginationColor;
+		position: relative;
+		padding: 15px 4px;
+		line-height: 24px;
+		z-index: 999999;
+		input{
+		    background: transparent;
+		    border: none;
+		    color: $paginationColor;
+		    font-size: 24px;
+		}
+		&:before{
+			content: '\f110';
+			font-family: LineAwesome;
+			font-size: 24px;
+			@include position(absolute, $right: 5px, $top:50%);
+			@include transform(translateY(-50%));
+
+		}
+	}
+	&Layer{
+		@include position(absolute, $left: 0, $top: 0px);
+		@include width-height(100%, 100%);
+		cursor: pointer;
+		z-index: 1;
+	}
+	&Option{
+		background-color: $white;
+		box-shadow :0 0 0.25rem rgba(25,28,30,.12), 0 0.5rem 1rem rgba(25,28,30,.1);
+		@include position(absolute, $left: 0, $top: 60px);
+		@include width-height(100%, 200px);
+		@include border-radius(4px);
+		opacity: 0;
+		overflow: auto;
+		text-align: left;
+		visibility: hidden;
+		@include transition(all 0.25s ease-in-out);
+		z-index: 1;
+		li{
+			cursor: pointer;
+			padding: 8px 20px;
+			&:hover{
+				background-color: rgba($paginationColor, 0.12);
+			}
+		}
+		&.active{
+			opacity: 1;
+			visibility: visible;
+			top: 60px;
+		}
+	}
+}
+.selectDropdownValue{
+	font-size: 24px;
+	line-height: 58px;
+	padding-right: 25px;
+}
+@media screen and (max-width: 768px){
+	.dropAlign{
+		&.reduceBottom{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@media screen and (max-width:640px){
+	.customStyleRight{
+		padding-left:0
+	}
+}
