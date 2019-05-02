@@ -21,6 +21,7 @@ class View extends Component {
     formData.append('description', 'previewImg');
     formData.append('backgrounds', 'previewImg');
     formData.append('selection_process', 'previewImg');
+    formData.append('opportunity[skill][id]', '3D Max');
     formData.append('salary', 'previewImg');
     formData.append('role_info.city', 'previewImg');
     formData.append('opportunity_id', 8491);
@@ -34,6 +35,7 @@ class View extends Component {
       });
   };
   render() {
+    const menuItem =[1,3,45,65,6]
     return (
       <div className="container">
         <TextFiled label="Title" />
@@ -44,6 +46,7 @@ class View extends Component {
         <TextFiled label="Selection process" />
         <TextFiled label="Salary" />
         <Button label="update" onClick={this.handleSubmit} />
+        <DropDown menuItem ={menuItem}/>
       </div>
     );
   }
