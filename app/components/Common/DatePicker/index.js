@@ -30,7 +30,7 @@ class DatePickerField extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event, date) {
-    this.props.onChange(date, this.props.id);
+    this.props.onChange(date, this.props.label);
   }
   render() {
     const { onChange, id, errors, value, maxDate, label } = this.props;

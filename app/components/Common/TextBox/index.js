@@ -75,7 +75,6 @@ TextFieldGroup.propTypes = {
   type: PropTypes.string,
   onChange: PropTypes.func,
   onKeyUp: PropTypes.func,
-  style: PropTypes.object,
   disabledColor: PropTypes.bool,
   readOnly: PropTypes.bool,
 };
