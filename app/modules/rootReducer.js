@@ -8,9 +8,11 @@
 import { combineReducers } from 'redux';
 
 import getOpertunitiesList from 'reducers/getOpertunitiesList';
+import getBackgroundList from 'reducers/getBg';
 
 const allReducers = {
   getOpertunitiesList,
+  getBackgroundList
 };
 
 const appReducer = combineReducers(allReducers);

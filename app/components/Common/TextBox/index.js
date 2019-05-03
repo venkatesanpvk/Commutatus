@@ -55,10 +55,7 @@ class TextFieldGroup extends Component {
           autoComplete={autoComplete}
         />
 
-        {(error && value === '') ||
-          (type === 'text' && error) ||
-          (type === 'email' && error) ||
-          (type === 'password' && error && <span className={styles.helpBlock}>{error}</span>)}
+        {error && <span className={styles.helpBlock}>{error}</span>}
       </FormRow>
     );
   }

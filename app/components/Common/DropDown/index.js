@@ -14,27 +14,44 @@ class SelectDropDown extends React.Component {
       label:''
     };
   }
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
   handleClick=(e)=>{
+    const{bg}=this.props;
     console.log(e)
-    this.setState({show:!this.state.show,label:e})
+    this.setState({show:!this.state.show,label:bg?e.name:e});
+    this.props.onChange(bg?e.name:e,this.props.label)
   }
   handleClicks=()=>{
     this.setState({show:!this.state.show})
   }
+  setWrapperRef=(node)=> {
+    this.wrapperRef = node;
+  }
+  handleClickOutside=(event)=> {
+    if (this.wrapperRef &&!this.wrapperRef.contains(event.target) ) {
+      this.setState({show:false})
+    }
+  }
+
   render() {
     const {show,label}=this.state;
-    console.log(show)
-    const list = [1,2,34,4]
+    const{menuItem,bg,value}=this.props;
     return (
-      <div >
+      <div ref={this.setWrapperRef}>
         <div className={styles.textBox}>
           <div onClick={this.handleClicks}>
-            <TextBox value ={label} />
+            <TextBox value ={value} />
           </div>
-          <span>label</span>
+          <span>{this.props.label}</span>
           <div className={[styles.dropDown,show && styles.show].join(' ')}>
             <ul>
-            {list.map((el,i)=>(<li onClick={this.handleClick.bind(this,el)}>{el}</li>))}
+            {menuItem.map((el,i)=>(<li onClick={this.handleClick.bind(this,el)}>{bg ?el.name:el}</li>))}
             </ul>
           </div>
         </div>

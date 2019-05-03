@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import list from 'components/pages/List';
-import View from 'components/pages/View';
+import List from 'components/Pages/List';
+import View from 'components/Pages/View';
 
 const App = () => (
   <React.Fragment>
     <Switch>
-      <Route exact path="/" component={list} />
+      <Route exact path="/" component={List} />
       <Route exact path="/view" component={View} />
     </Switch>
   </React.Fragment>

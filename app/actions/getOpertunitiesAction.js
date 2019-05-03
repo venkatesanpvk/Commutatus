@@ -1,5 +1,5 @@
-import { GET_OPERTUNITIES, UPDATE_LIST } from './types';
-import { getOpertunities, updateOpertunities } from './api';
+import { GET_OPERTUNITIES, UPDATE_LIST,GET_BG,OPP_DATA } from './types';
+import { getOpertunities, updateOpertunities,getBackground,getData } from './api';
 
 export function getContentActivityData(data) {
   return {
@@ -13,10 +13,28 @@ export function updateContentActivityData(data) {
     data,
   };
 }
+export function dispatchData(data) {
+  return {
+    type: OPP_DATA,
+    data,
+  };
+}
+export function dispatchBgData(data) {
+  return {
+    type: GET_BG,
+    data,
+  };
+}
 export function getOpertunitiesList() {
   return getOpertunities(getContentActivityData);
 }
 
-export function updateOpertunitiesList(data) {
-  return updateOpertunities(updateContentActivityData, data);
+export function updateOpertunitiesList(data,id) {
+  return updateOpertunities(updateContentActivityData, data,id);
+}
+export function getBackgrounds() {
+  return getBackground(dispatchBgData);
+}
+export function getDatas(id) {
+  return getData(dispatchData,id);
 }

@@ -14,11 +14,27 @@ export function getOpertunities(dispatchMethod) {
       .then(res => dispatch(dispatchMethod(res)));
 }
 
-export function updateOpertunities(dispatchMethod, data) {
+export function updateOpertunities(dispatchMethod, data,id) {
   return dispatch =>
-    fetch(`http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities/8491`, {
+    fetch(`http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities/${id}`, {
       method: 'PATCH',
       body: data,
+    })
+      .then(res => res.json())
+      .then(res => dispatch(dispatchMethod(res)));
+}
+export function getBackground(dispatchMethod) {
+  return dispatch =>
+    fetch(`http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/lists/backgrounds?access_token=${access_token}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => dispatch(dispatchMethod(res)));
+}
+export function getData(dispatchMethod,id) {
+  return dispatch =>
+    fetch(`http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities/${id}?access_token=${access_token}`, {
+      method: 'GET',
     })
       .then(res => res.json())
       .then(res => dispatch(dispatchMethod(res)));
