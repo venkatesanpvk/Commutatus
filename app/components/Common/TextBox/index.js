@@ -29,6 +29,7 @@ class TextFieldGroup extends Component {
       placeholder,
       fragType,
       onKeyUp,
+      disabled,
       autoComplete,
     } = this.props;
     const className = cx({
@@ -36,7 +37,7 @@ class TextFieldGroup extends Component {
       hasError: (type === 'text' && error) || (type === 'email' && error),
     });
     return (
-      <FormRow className={className}>
+      <FormRow className={className} disabled={disabled}>
         <label htmlFor={id}>{label}</label>
         <input
           onChange={onChange}
@@ -51,6 +52,7 @@ class TextFieldGroup extends Component {
           placeholder={placeholder}
           tabIndex={tabIndex}
           style={style}
+          disabled ={disabled}
           readOnly={readOnly}
           autoComplete={autoComplete}
         />

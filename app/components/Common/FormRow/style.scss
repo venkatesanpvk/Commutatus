@@ -17,15 +17,6 @@
 	}
 		
 }
-
-@media screen and (max-width:640px){
-	.formRow{
-		padding-left: 0;
-		label{
-			display: block;
-			position: relative;
-			padding-bottom:0px;
-			top:0;
-		}
-	}
+.disable{
+	pointer-events: none;
 }

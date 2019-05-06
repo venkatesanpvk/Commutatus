@@ -322,7 +322,7 @@ module.exports = function(env) {
       host: host,
       hot: !isProd,
       compress: isProd,
-      disableHostCheck: true,
+      disableHostCheck: false,
       stats: stats,
     },
   };

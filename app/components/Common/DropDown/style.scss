@@ -11,6 +11,9 @@
     ul{
     	background-color: white;
     	border :1px solid #444141;
+    	background-color: #b1b1b1;
+    	height:150px;
+    	overflow-y: scroll;
     	list-style: none;
     	padding: 0;
     	text-align: center;
@@ -26,7 +29,7 @@
 .show{
 	display: block;
 }
-span{
+.inputLabel{
 	position: absolute;
     top: 50%;
     left: 0;
@@ -36,4 +39,26 @@ span{
     font-size: 15px;
     line-height: 1.4;
     color: #120047;
+}
+.multiple{
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	span{
+		margin-left: 10px;
+		background-color: grey;
+		width: 100%;
+		position: relative;
+		padding: 3px 15px 3px 3px;
+		&:after{
+			position:absolute;
+			content:'X';
+			top:50%;
+			transform: translateY(-50%);
+			right: 2px;
+		}
+	}
+	section{
+		padding-left: 180px;
+	}
 }

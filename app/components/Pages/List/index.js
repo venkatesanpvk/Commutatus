@@ -15,8 +15,10 @@ class OppertunitiesList extends Component {
     this.props.getOpertunitiesList();
   }
   viewData=(id,label)=>{
+    console.log(label)
     if(label==='edit'){
       this.context.router.history.push(`/view?${id}`);
+      return false;
     }
     this.context.router.history.push(`/view?${id}&view`);
   }

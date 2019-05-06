@@ -33,7 +33,7 @@ class DatePickerField extends Component {
     this.props.onChange(date, this.props.label);
   }
   render() {
-    const { onChange, id, errors, value, maxDate, label } = this.props;
+    const { onChange, id, errors, value, maxDate, label,minDate,disabled } = this.props;
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(baseStyles)}>
         <div className={styles.datePickerAlign}>
@@ -41,22 +41,24 @@ class DatePickerField extends Component {
             id={id}
             error={errors}
             onChange={onChange}
+            disabled={disabled}
             value={value}
             field={name}
             type="text"
             openDialog={() => this.datePicker.focus()}
             label={label}
           />
-          <DatePicker
+          {!disabled&&<DatePicker
             ref={c => {
               this.datePicker = c;
             }}
             hintText=""
             onChange={this.handleChange}
             autoOk
+            minDate={minDate}
             maxDate={maxDate}
             textFieldStyle={pickerStyle.textFieldStyle}
-          />
+          />}
         </div>
       </MuiThemeProvider>
     );
