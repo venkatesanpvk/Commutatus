@@ -17,34 +17,9 @@ table{
 		border-right: none;
 		border-top: none;
 	}
-/*	tr,thead{
-		&:first-child{
-			td,th{
-				&:first-child{
-					border:1px solid red;
-					border-top-left-radius:4px;
-					border-top-right-radius:4px;
-				}
-				&:last-child{
-					border:1px solid red;
-					border-top-left-radius:4px;
-					border-top-right-radius:4px;
-				}
-			}
-		}
-		&:last-child{
-			td,th{
-				&:first-child{
-					border:1px solid red;
-					border-top-left-radius:4px;
-					border-top-right-radius:4px;
-				}
-				&:last-child{
-					border:1px solid red;
-					border-top-left-radius:4px;
-					border-top-right-radius:4px;
-				}
-			}
-		}
-	}*/
+}
+.buttonAlign{
+	float: right;
+	vertical-align: top;
+	overflow: hidden;
 }

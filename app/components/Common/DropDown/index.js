@@ -1,9 +1,7 @@
 import React from 'react';
-// import classnames from 'classnames/bind';
-import { map } from 'lodash';
+import { map,isEmpty} from 'lodash';
 import styles from './style.scss';
 import TextBox from  'components/Common/TextBox';
-// const cx = classnames.bind(styles);
 
 class SelectDropDown extends React.Component {
   constructor(props) {
@@ -25,14 +23,24 @@ class SelectDropDown extends React.Component {
   handleClick=(e)=>{
     const{bg,isMulti}=this.props;
     const {multiSelect} =this.state;
-    if(isMulti){
-      multiSelect.push(e.name);
-      this.setState({multiSelect});
-      this.props.onChange(multiSelect,this.props.label)
-      return false;
+    if(multiSelect.length<=2){
+      if(isMulti){
+        let flag = 0;
+        !isEmpty(multiSelect)&&multiSelect.map((el,i)=>{
+          if(el === e.name){
+            flag = 1;
+          }
+        });
+        if(flag === 0){
+          multiSelect.push(e.name);
+        }
+        this.setState({multiSelect});
+        this.props.onChange(multiSelect,this.props.label)
+        return false;
+      }
+      this.setState({show:!this.state.show,label:bg?e.name:e});
+      this.props.onChange(bg?e.name:e,this.props.label);
     }
-    this.setState({show:!this.state.show,label:bg?e.name:e});
-    this.props.onChange(bg?e.name:e,this.props.label)
   }
   handleClicks=()=>{
     this.setState({show:!this.state.show})

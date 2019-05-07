@@ -11,7 +11,7 @@ import DatePicker from 'components/Common/DatePicker';
 import DropDown from 'components/Common/DropDown';
 import { validate } from 'components/Common/validation';
 import { updateOpertunitiesList,getBackgrounds,getDatas } from 'actions/getOpertunitiesAction';
-// import Styles from './style.scss';
+import styles from '../List/style.scss';
 
 class View extends Component {
   constructor(props) {
@@ -76,6 +76,7 @@ class View extends Component {
       const {CloseDate,StartDate,EndDate,Backgrounds,Description,Salary,City,Selection,Title,id}=this.state;
       const access_token = 'dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c';
       const a = ['3D Max'];
+      const b =['224','224','226'];
       const formData = new FormData();
       formData.append('access_token', access_token);
       formData.append('opportunity[title]', Title);
@@ -83,10 +84,10 @@ class View extends Component {
       formData.append('opportunity[earliest_start_date]', StartDate);
       formData.append('opportunity[latest_end_date]', EndDate);
       formData.append('opportunity[description]', Description);
-      formData.append('opportunity[backgrounds][option]',Backgrounds);
+      // formData.append('opportunity[backgrounds][id]',b);
       formData.append('opportunity[role_info][selection_process]', Selection);
       formData.append('opportunity[skill][id]', a);
-      // formData.append('opportunity[specifics_info][salary]',10000);
+      formData.append('opportunity[specifics_info][salary]',parseInt(Salary));
       formData.append('opportunity[role_info][city]', City);
       formData.append('opportunity_id', id);
       this.props
@@ -187,10 +188,13 @@ class View extends Component {
           onChange={this.handleDrop} 
           value ={Selection}
           error={errors.Selection}/>
+        {type!=='view'&&
+        <div className={styles.buttonAlign}>
           <Button 
-          label="update" 
-          onClick={this.handleSubmit} />
-        
+            label="Update" 
+            onClick={this.handleSubmit} />
+        </div>
+        }
       </div>
     );
   }
